@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/launcherFragment">
+    <fragment
+        android:id="@+id/launcherFragment"
+        android:name="com.zikki.basicloginandapi.ui.login.LauncherFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/launcher_fragment">
+        <action
+            android:id="@+id/action_launcherFragment_to_logBackIn"
+            app:destination="@id/logBackInFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/logBackInFragment"
+        android:name="com.zikki.basicloginandapi.ui.login.LogBackInFragment"
+        android:label="log_back_in_fragment"
+        tools:layout="@layout/log_back_in_fragment">
+        <action
+            android:id="@+id/action_logBackIn_to_photosFragment"
+            app:destination="@id/photosFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/photosFragment"
+        android:name="com.zikki.basicloginandapi.ui.loggedIn.PhotosFragment"
+        android:label="photos_fragment"
+        tools:layout="@layout/photos_fragment">
+        <action
+            android:id="@+id/action_photosFragment_to_logBackInFragment"
+            app:popUpTo="@id/logBackInFragment" />
+        <action
+            android:id="@+id/action_photosFragment_to_errorFragment"
+            app:destination="@id/errorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/errorFragment"
+        android:name="com.zikki.basicloginandapi.ui.error.ErrorFragment"
+        android:label="error_page_fragment"
+        tools:layout="@layout/error_page_fragment">
+        <action
+            android:id="@+id/pop_back"
+            app:popUpTo="@id/logBackInFragment"/>
+    </fragment>
+</navigation>
